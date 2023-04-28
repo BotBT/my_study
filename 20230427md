@@ -1,0 +1,206 @@
+# 4월 27일
+## Python
+
+### 표준 라이브러리
+- 파이썬에서 지원하는 표준 라이브러리.
+- 퍼아썬울 설치할 때 자동으로 함께 설치.
+- 따로 설치하지 않고 import 명령어로 불러옴.
+
+#### datetime
+- 날짜 관련 라이브러리.
+- datetime date 객체 사용.
+```python
+import datetime
+day1 = datetime.date(2023, 4, 17)
+day_end = datetime.date(2023.9, 18)
+diff = day_end - day1
+print(diff.days)
+```
+
+```python
+# 2018년 8월 6일 무슨 요알알까요?
+
+import datetime
+day = datetime.date(2018, 8 ,6)
+weekdays = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]]
+print(day.weekday())
+print(weekdays[day.weekday()])
+```
+
+#### datetimr
+- 년/월/일
+- 월/일/년
+- 일/월/년
+- 2023년 4월 27일
+- 2023-04-27
+- 23년 4월 27일
+```python
+import datetime
+today = datetime.datetime.today()
+```
+
+#### strftime()
+```python
+print(today.strftime("%Y년 %m월 %d일"))
+# %Y 년도 4자리 다
+# %y suseh 2자리
+# %m 월
+# %d 일
+# %H 시간(24시간)
+# %I(12시간)
+# %M 분
+# %S 초
+# %A 요일
+print(today.strftime("%A"))
+```
+
+#### time 라이브러리
+- 시간 관련
+```python
+import time 
+time_now = time.time()
+print(time_now)
+print(time.strftime("%H:%H:%S", time.localtimeItime.ooom(time_now)))
+```
+
+#### time sleep()
+```python
+import time
+time.sleep()
+print('before')
+time.sleep(1)
+print('after')
+for i in range(10):
+    print(i)
+    time.sleep(1.2)
+```
+
+#### math
+- 수학 관련
+```python
+import math
+result = math.ceil(1.1) # ceil 올림 함수
+print(result)
+result = math.floor(1.9)
+print(result)
+print(math.pi)
+```
+
+#### random
+- 난수 관련
+```python
+random.random()
+0.0 ~ 1.0 사이의 실수 중 난수 값
+random_value = random.random()
+print(random_value)
+
+radnom_value = random.randint(1, 10) # 1도 포함, 10도 포함.
+print(radnom_value)
+```
+##### rnadom.choice(리스트)
+- 리스트의 요소 중 무작위로 하나를 리턴
+```python
+foods = ["서브웨이", "맥도날드", "짜장면", "국밥", "김치찌개"]
+food = random.choice(foods)
+print(food)
+```
+
+##### shuffle
+```python
+li = [1, 2, 3, 4, 5] 
+random.shuffle(li)
+print(li)
+```
+
+```python
+lotto_numbers = list(range(1, 46))
+my_lotto = []
+for i in range(6):
+    random_value = (random.choice(lotto_numbers))
+    if random_value not in my_lotto:
+        my_lotto.append(random_value)
+print(my_lotto)
+```
+
+#### in 연산자
+- a in b
+- a가 b에 포함되어 있으면 Trueq
+- a가 b에 포함되어 있지 않으면 False
+
+#### not in 연산자
+- not in 연산자
+- a not in b
+- a가 b에 포함되어 있지 않으면 True
+- a가 b에 포함되어 있으면 False
+
+```python
+li = [1, 2, 3, 4, 5]
+a = 10
+for i in li:
+    if a == i:
+        print("이미 있음")
+
+if a in li:
+    print("이미 있음")
+```
+
+```python
+lotto_numbers = list(range(1,46))
+random.shuffle(lotto_numbers)
+my_lotto = lotto_numbers[:6]
+print(my_lotto)
+```
+##### practice 1
+```python
+# 색 이름과 음식 이름을 합치면 멋진 밴드 이름이 된다고 합니다.
+# 색 이름과 음식 이름을 무작위로 뽑아 밴드 이름을 추천하는 프로그램을 만들어보세요
+
+"""
+베이지 블랙 블루 회색 청색 레드 파란 핑크 그레이 
+쭈꾸미 요거트 오란다 와플 아이스티 떡볶이 커피
+"""
+colors = ["베이지", "블랙", "블루"]
+foods = ["쭈구미", "요거트", "오란다"]
+colors = random.choice(colors)
+food = random.choice(foods)
+print(f"{colors} {foods}")
+```
+
+##### practice 2
+```python
+# 숫자 야구 게임
+# 1. 정답을 정한다. 정담을 4자리 숫자(랜덤)
+# 2. 게임유저가 정답을 입력한다.
+# 3. 정답과 비교해서 S / B / OUT 개수 알려준다.
+# 4. 정답을 맞추거나, 종료를 입력하면 끝낸다.
+# 5. 답을 맞췄을 때 → 더 하시겠습니까?
+
+import random
+numbers = list(range(10))
+random.shuffle(numbers)
+answer = numbers[1:5] if numbers[0] == 0 else numbers[:4]
+while True:
+    user_input = input("정답은?")
+    strike = 0
+    ball = 0
+    out = 0
+    for i in range(4):
+        input_value = int(user_input[i])
+        if input_value not in answer:
+             out += 1
+        elif input_value == answer[i]:
+             strike += 1
+        else:
+            ball += 1
+```
+
+#### 삼향 연산자
+- 참일때값 if 조건 else 거짓일때 값
+- result = "참" if True else "거짓"
+- result = "참" if False else "거짓"
+- print(result)
+
+```python
+def is_odd_number(n):
+   return "홀수" if n % 2 == 1 else "짝수"
+```

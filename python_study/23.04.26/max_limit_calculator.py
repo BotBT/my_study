@@ -7,19 +7,43 @@
 # 를 출력한다.
 # 계산 결과가 100보다 크면 계산하지 않고 100 이하의 결과가 나오는 값을 입력하도록 안내
 # 메시지를 출력한다.
-
-class MyCalculator:
-    def add(self):
-        pass
-    def sub(self):
-        pass
-    def mul(self):
-        pass
-    def div(self):
-        pass
+from my_calculator import MyCalculator
 
 class MaxLimitCalculator(MyCalculator):
-    def kk(self):
-        print()
-
-    # if 
+    def add(self, n1, n2):
+        if n1 > 100:
+            print("100보다 작은 수를 입력하세요.")
+        elif n2 > 100:
+            print("100보다 작은 수를 입력하세요")
+        else:
+            result = n1 + n2
+            if result > 100:
+                print("계산결과가 100보다 작아야 합니다.")
+            else:
+                print(f"{n1} + {n2} = [n1+n2]")
+    def sub(self, n1, n2):
+            if n1 > 100:
+                 print("100보다 작은 수를 입력하세요.")
+            elif n2 > 100:
+                print("100보다 작은 수를 입력하세요")
+            else:
+               result = n1 - n2
+            if result > 100:
+                print("계산결과가 100보다 작아야 합니다.")
+            else:
+                print(f"{n1} - {n2} = [n1-n2]")
+    def mul(self, n1, n2):
+            if n1 > 100:
+                print("100보다 작은 수를 입력하세요.")
+            elif n2 > 100:
+             print("100보다 작은 수를 입력하세요")
+            else:
+                result = n1 + n2
+            if result > 100:
+                print("계산결과가 100보다 작아야 합니다.")
+            else:
+                print(f"{n1} / {n2} = [n1/n2]")
+    def div(self, n1 ,n2):
+        pass 
+# class
+    # if  
